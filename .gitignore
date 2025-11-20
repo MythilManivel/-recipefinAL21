@@ -1,0 +1,23 @@
+# Root ignore for monorepo
+node_modules/
+
+# Client build
+client/dist/
+client/dist-ssr/
+
+# Server uploads
+server/uploads/
+
+# Environment files (do NOT commit secrets)
+.env
+server/.env
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# IDE/editor
+.vscode/
+.idea/
+.DS_Store
