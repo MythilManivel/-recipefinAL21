@@ -1,4 +1,5 @@
-import { Routes, Route, Link, Navigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from './context/AuthContext'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
@@ -10,6 +11,15 @@ import RecipeDetail from './components/RecipeDetail'
 
 function App() {
   const { user, logout } = useAuth()
+
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (user && location.pathname === '/') {
+      navigate('/dashboard', { replace: true })
+    }
+  }, [user, location.pathname, navigate])
 
   return (
     <div>
