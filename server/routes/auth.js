@@ -56,7 +56,6 @@ router.post('/login',
     user.lastLogin = new Date();
     await user.save();
     
-    // Return user data directly
     res.json({ 
       message: 'Logged in', 
       user: { 
